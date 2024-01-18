@@ -2,9 +2,10 @@ import React from 'react'
 import { useState } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './components/Login';
-import FakeStoreComponent from './components/FakeStoreComponent';
+import FakeStoreProductComponent from './components/Cards';
 import Navbar from './components/NavBar'
 import Jumbotron from './components/Jumbotron'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -13,7 +14,8 @@ function App() {
     <Router>
       <Routes>
       <Route path="/" element={<Login />} />
-      <Route path="/home" element={<div><Navbar /><FakeStoreComponent /></div>} />
+      <Route path="/home" element={<div><Navbar /><Jumbotron /><FakeStoreProductComponent /></div>} />
+      
       </Routes>
     </Router>
   )
