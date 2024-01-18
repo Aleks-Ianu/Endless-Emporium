@@ -138,7 +138,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Example() {
+const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -507,3 +507,5 @@ export default function Example() {
     </div>
   );
 }
+
+export default Navbar;
