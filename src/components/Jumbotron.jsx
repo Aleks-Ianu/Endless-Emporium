@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const Jumbotron = () => {
   return (
@@ -6,12 +6,11 @@ const Jumbotron = () => {
       <div className="pt-16 pb-80 sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40">
         <div className="relative px-4 mx-auto max-w-7xl sm:static sm:px-6 lg:px-8">
           <div className="sm:max-w-lg">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Summer styles are finally here
-            </h1>
+            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+            Empower Your Style Journey with Endless Emporium
+            </h2>
             <p className="mt-4 text-xl text-gray-500">
-              This year, our new summer collection will shelter you from the harsh elements of a world that doesn't care
-              if you live or die.
+            At Endless Emporium, we invite you to embark on a style revolution. Explore our collection of hand-picked pieces, Immerse yourself in a world where fashion meets identity, and each piece tells a unique story. 
             </p>
           </div>
           <div>
@@ -81,19 +80,12 @@ const Jumbotron = () => {
                   </div>
                 </div>
               </div>
-
-              <a
-                href="#"
-                className="inline-block px-8 py-3 font-medium text-center text-white bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-700"
-              >
-                Shop Collection
-              </a>
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Jumbotron
+export default Jumbotron;
