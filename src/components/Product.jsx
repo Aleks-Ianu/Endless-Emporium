@@ -19,9 +19,11 @@
   }
   ```
 */
-import { useState } from 'react'
+import { useEffect, useState } from 'react';
 import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const product = {
   name: 'Basic Tee 6-Pack',
@@ -82,15 +84,33 @@ function classNames(...classes) {
 }
 
 const Product = () => {
-  const [selectedColor, setSelectedColor] = useState(product.colors[0])
-  const [selectedSize, setSelectedSize] = useState(product.sizes[2])
+  const { productId } = useParams();
+  const [product, setProduct] = useState(null);
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const response = await axios.get(`https://fakestoreapi.com/products/${productId}`);
+        setProduct(response.data);
+      } catch (error) {
+        console.error('Error fetching product:', error);
+      }
+    };
+
+    fetchProduct();
+  }, [productId]);
+
+  if (!product) return <div>Loading...</div>;
+
+  // const [selectedColor, setSelectedColor] = useState(product.colors[0])
+  // const [selectedSize, setSelectedSize] = useState(product.sizes[2])
 
   return (
     <div className="bg-white">
       <div className="pt-6">
         <nav aria-label="Breadcrumb">
           <ol role="list" className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-            {product.breadcrumbs.map((breadcrumb) => (
+            {/* {product.breadcrumbs.map((breadcrumb) => (
               <li key={breadcrumb.id}>
                 <div className="flex items-center">
                   <a href={breadcrumb.href} className="mr-2 text-sm font-medium text-gray-900">
@@ -108,7 +128,7 @@ const Product = () => {
                   </svg>
                 </div>
               </li>
-            ))}
+            ))} */}
             <li className="text-sm">
               <a href={product.href} aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">
                 {product.name}
@@ -121,34 +141,34 @@ const Product = () => {
         <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
           <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
             <img
-              src={product.images[0].src}
-              alt={product.images[0].alt}
+              src={product.image}
+              alt={product.image}
               className="h-full w-full object-cover object-center"
             />
           </div>
-          <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+          {/* <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
             <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
               <img
-                src={product.images[1].src}
-                alt={product.images[1].alt}
+                src={product.image.src}
+                alt={product.image.alt}
                 className="h-full w-full object-cover object-center"
               />
             </div>
             <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
               <img
-                src={product.images[2].src}
-                alt={product.images[2].alt}
+                src={product.image.src}
+                alt={product.image.alt}
                 className="h-full w-full object-cover object-center"
               />
             </div>
           </div>
           <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
             <img
-              src={product.images[3].src}
-              alt={product.images[3].alt}
+              src={product.image}
+              alt={product.image}
               className="h-full w-full object-cover object-center"
             />
-          </div>
+          </div> */}
         </div>
 
         {/* Product info */}
@@ -160,7 +180,7 @@ const Product = () => {
           {/* Options */}
           <div className="mt-4 lg:row-span-3 lg:mt-0">
             <h2 className="sr-only">Product information</h2>
-            <p className="text-3xl tracking-tight text-gray-900">{product.price}</p>
+            <p className="text-3xl tracking-tight text-gray-900">£{product.price}</p>
 
             {/* Reviews */}
             <div className="mt-6">
@@ -190,7 +210,7 @@ const Product = () => {
               <div>
                 <h3 className="text-sm font-medium text-gray-900">Color</h3>
 
-                <RadioGroup value={selectedColor} onChange={setSelectedColor} className="mt-4">
+                {/* <RadioGroup value={selectedColor} onChange={setSelectedColor} className="mt-4">
                   <RadioGroup.Label className="sr-only">Choose a color</RadioGroup.Label>
                   <div className="flex items-center space-x-3">
                     {product.colors.map((color) => (
@@ -219,7 +239,7 @@ const Product = () => {
                       </RadioGroup.Option>
                     ))}
                   </div>
-                </RadioGroup>
+                </RadioGroup> */}
               </div>
 
               {/* Sizes */}
@@ -231,7 +251,7 @@ const Product = () => {
                   </a>
                 </div>
 
-                <RadioGroup value={selectedSize} onChange={setSelectedSize} className="mt-4">
+                {/* <RadioGroup value={selectedSize} onChange={setSelectedSize} className="mt-4">
                   <RadioGroup.Label className="sr-only">Choose a size</RadioGroup.Label>
                   <div className="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4">
                     {product.sizes.map((size) => (
@@ -281,7 +301,7 @@ const Product = () => {
                       </RadioGroup.Option>
                     ))}
                   </div>
-                </RadioGroup>
+                </RadioGroup> */}
               </div>
 
               <button
@@ -308,11 +328,11 @@ const Product = () => {
 
               <div className="mt-4">
                 <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
-                  {product.highlights.map((highlight) => (
+                  {/* {product.highlights.map((highlight) => (
                     <li key={highlight} className="text-gray-400">
                       <span className="text-gray-600">{highlight}</span>
                     </li>
-                  ))}
+                  ))} */}
                 </ul>
               </div>
             </div>
