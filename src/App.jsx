@@ -5,7 +5,7 @@ import Login from './components/Login';
 import FakeStoreProductComponent from './components/Cards';
 import Navbar from './components/NavBar'
 import Jumbotron from './components/Jumbotron'
-import ProductPage from './pages/ProductPage';
+import Product from './components/Product'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,8 +15,9 @@ function App() {
       <Routes>
       <Route path="/" element={<Login />} />
       <Route path="/home" element={<div><Navbar /><Jumbotron /><FakeStoreProductComponent /></div>} />
+      <Route path="/product/:productId" element={<div><Navbar /><Product /></div>} />
       
-      <Route path="/product" element={<ProductPage />} />
+     
       </Routes>
     </Router>
   )
