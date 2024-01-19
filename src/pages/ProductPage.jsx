@@ -1,11 +1,11 @@
 import React from 'react';
-import Navbar from '../components/NavBar';
+import NavBar from '../components/Navbar';
 import Product from '../components/Product';
 
 function ProductsPage() {
     return (
         <div className="productsPage">
-            <Navbar /> 
+            <NavBar /> 
             <Product />
 
         </div>

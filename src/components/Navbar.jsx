@@ -138,7 +138,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const Navbar = () => {
+const NavBar = () => {
   const [open, setOpen] = useState(false);
 
   return (
