@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './components/Login';
 import ProductPage from './pages/ProductPage';
-import HomePage from './HomePage'
+import HomePage from './pages/HomePage'
 function App() {
   const [count, setCount] = useState(0)
    

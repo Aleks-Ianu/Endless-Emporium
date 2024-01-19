@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import React , { Fragment, useState } from "react";
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -508,4 +508,4 @@ const Navbar = () => {
   );
 }
 
-export default Navbar;
+export default NavBar;
