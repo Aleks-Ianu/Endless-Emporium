@@ -40,16 +40,12 @@ const config = {
               id: 1,
             },
             {
-              text: "Mozilla JS Guide",
+              text: "Looking for fit tips? I've got you covered!",
               url:
-                "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+                "https://sortedclothing.in/blog/guide-to-finding-the-perfect-fit-for-your-body-type",
               id: 2,
             },
-            {
-              text: "Frontend Masters",
-              url: "https://frontendmasters.com",
-              id: 3,
-            }
+            
     ],
   },
 },

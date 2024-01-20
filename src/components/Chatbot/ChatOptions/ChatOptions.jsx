@@ -10,19 +10,19 @@ const ChatOptions = (props) => {
       handler: props.actionProvider.sizeAssistance,
       id: 1,
     },
-    { text: "Data visualization", 
+    { text: "Check out our latest promotions and discounts.", 
     handler: props.actionProvider.handleJavacriptList,
     id: 2
   },
-    { text: "APIs",
+    { text: "Stay informed about our company news and updates.",
      handler: props.actionProvider.handleJavacriptList
      , id: 3 
     },
-    { text: "Security",
+    { text: "Feedback",
      handler: props.actionProvider.handleJavacriptList,
       id: 4
      },
-    { text: "Interview prep",
+    { text: "Contact us",
      handker: props.actionProvider.handleJavacriptList,
       id: 5 },
   ];
