@@ -5,9 +5,9 @@ import ChatOptions from "./ChatOptions/ChatOptions";
 import LinkList from "./LinkList/LinkList";
 
 const config = {
-    botName: "LearningBot",
+    botName: "TechBuddy",
     initialMessages: [
-      createChatBotMessage("Hi, I'm here to help. What do you want to learn?",{
+      createChatBotMessage("Hi there! 👋 I'm TechBuddy, your friendly tech assistant. How can I help you today?",{
       widget: 'learningOptions',
       }),
     ],
@@ -29,14 +29,14 @@ const config = {
         widgetFunc: (props) => <LinkList {...props} />,
       },
       {
-        widgetName: "javascriptLinks",
+        widgetName: "sizeOptions",
         widgetFunc: (props) => <LinkList {...props} />,
         props: {
           options: [
             {
-              text: "Introduction to JS",
+              text: "Here's our size chart.",
               url:
-                "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/",
+                "https://www.looksize.com/by-brands-a-z",
               id: 1,
             },
             {

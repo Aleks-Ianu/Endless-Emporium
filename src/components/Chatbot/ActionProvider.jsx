@@ -4,11 +4,11 @@ class ActionProvider {
       this.setState = setStateFunc;
     }
   
-    handleJavascriptList = () => {
+    sizeAssistance = () => {
       const message = this.createChatBotMessage(
-        "Fantastic, I've got the following resources for you on Javascript:",
+        "Great! Let me help you find your perfect size.",
         {
-          widget: "javascriptLinks",
+          widget: "sizeOptions",
         }
       );
   

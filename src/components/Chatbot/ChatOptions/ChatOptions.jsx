@@ -6,8 +6,8 @@ import "./ChatOptions.css";
 const ChatOptions = (props) => {
   const options = [
     {
-      text: "Javascript",
-      handler: props.actionProvider.handleJavascriptList,
+      text: "Size and Fit Assistance",
+      handler: props.actionProvider.sizeAssistance,
       id: 1,
     },
     { text: "Data visualization", 
