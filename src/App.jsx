@@ -11,6 +11,7 @@ import Chatbot from 'react-chatbot-kit';
 import ActionProvider from './components/Chatbot/ActionProvider';
 import MessageParser from './components/Chatbot/MessageParser';
 import config from './components/Chatbot/Config';
+import 'react-chatbot-kit/build/main.css';
 
 function App() {
   const [count, setCount] = useState(0)

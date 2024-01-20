@@ -10,10 +10,21 @@ const ChatOptions = (props) => {
       handler: props.actionProvider.handleJavascriptList,
       id: 1,
     },
-    { text: "Data visualization", handler: () => {}, id: 2 },
-    { text: "APIs", handler: () => {}, id: 3 },
-    { text: "Security", handler: () => {}, id: 4 },
-    { text: "Interview prep", handler: () => {}, id: 5 },
+    { text: "Data visualization", 
+    handler: props.actionProvider.handleJavacriptList,
+    id: 2
+  },
+    { text: "APIs",
+     handler: props.actionProvider.handleJavacriptList
+     , id: 3 
+    },
+    { text: "Security",
+     handler: props.actionProvider.handleJavacriptList,
+      id: 4
+     },
+    { text: "Interview prep",
+     handker: props.actionProvider.handleJavacriptList,
+      id: 5 },
   ];
 
   const optionsMarkup = options.map((option) => (
