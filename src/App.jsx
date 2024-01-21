@@ -7,6 +7,7 @@ import Product from './components/Product';
 import HomePage from './pages/HomePage'
 import NavBar from './components/Navbar';
 
+
 function App() {
   const [count, setCount] = useState(0)
    
