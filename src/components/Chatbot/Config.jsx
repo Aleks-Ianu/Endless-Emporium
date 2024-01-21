@@ -28,7 +28,8 @@ const config = {
         widgetName: "links",
         widgetFunc: (props) => <LinkList {...props} />,
       },
-      {
+    //   sizeOption query
+      { 
         widgetName: "sizeOptions",
         widgetFunc: (props) => <LinkList {...props} />,
         props: {
@@ -44,11 +45,76 @@ const config = {
               url:
                 "https://sortedclothing.in/blog/guide-to-finding-the-perfect-fit-for-your-body-type",
               id: 2,
-            },
-            
+            }, 
     ],
   },
 },
+{
+  widgetName: "promotionsAndDiscount",
+  widgetFunc: (props) => <LinkList {...props} />,
+  props: {
+    options: [
+      {
+        text: "Promotions",
+        url:
+          "",
+        id: 1,
+      },
+      {
+        text: "Latest Products",
+        url:
+          "",
+        id: 2,
+      }, 
+],
+},
+},
+{
+  widgetName: "feedback",
+  widgetFunc: (props) => <LinkList {...props} />,
+  props: {
+    options: [
+      {
+        text: "Feedback",
+        url:
+          "",
+        id: 1,
+      },
+      {
+        text: "Share with friends and family",
+        url:
+          "",
+        id: 2,
+      }, 
+],
+},
+},
+{
+  widgetName: "contact",
+  widgetFunc: (props) => <LinkList {...props} />,
+  props: {
+    options: [
+      {
+        text: "LinkedIn",
+        url:
+          "https://www.linkedin.com/in/aleksander-ianulardo-77960b247/",
+        id: 1,
+      },
+      {
+        text: "Github",
+        url:
+          "https://github.com/Aleks-Ianu",
+        id: 2,
+      },
+      {
+        text: "email",
+        url:
+          "mailto:ianu.aleks@gmail.com",
+        id: 2,
+      }, 
+],
+},
+}
     ],
 };
   

@@ -11,19 +11,19 @@ const ChatOptions = (props) => {
       id: 1,
     },
     { text: "Check out our latest promotions and discounts.", 
-    handler: props.actionProvider.handleJavacriptList,
+    handler: props.actionProvider.checkOutPromos,
     id: 2
   },
     { text: "Stay informed about our company news and updates.",
-     handler: props.actionProvider.handleJavacriptList
+     handler: props.actionProvider.newsAndUpdate
      , id: 3 
     },
     { text: "Feedback",
-     handler: props.actionProvider.handleJavacriptList,
+     handler: props.actionProvider.feedback,
       id: 4
      },
-    { text: "Contact us",
-     handker: props.actionProvider.handleJavacriptList,
+    { text: "Contact Us",
+     handler: props.actionProvider.contact,
       id: 5 },
   ];
 
