@@ -7,28 +7,20 @@ class MessageParser {
       const lowerCaseMessage = message.toLowerCase();
   
       if (lowerCaseMessage.includes("hello")) {
-        this.actionProvider.greet();
+          this.actionProvider.greet();
+      } else if (lowerCaseMessage.includes("feedback")) {
+          this.actionProvider.feedback();
+      } else if (lowerCaseMessage.includes("contact")) {
+          this.actionProvider.contact();
+      } else if (lowerCaseMessage.includes("size")) {
+          this.actionProvider.sizeAssistance();
+      } else if (lowerCaseMessage.includes("prom") || lowerCaseMessage.includes("dis")) {
+          this.actionProvider.checkOutPromos();
+      } else {
+          this.actionProvider.standardAnswer();
       }
-  
-      if (lowerCaseMessage.includes("feedback")) {
-        this.actionProvider.feedback();
-      }
-      if (lowerCaseMessage.includes("contact")) {
-        this.actionProvider.contact();
-      }
-      if (lowerCaseMessage.includes("size")) {
-        this.actionProvider.sizeAssistance();
-      }
-      if (lowerCaseMessage.includes("prom")) {
-        this.actionProvider.checkOutPromos();
-      }
-      if (lowerCaseMessage.includes("dis")) {
-        this.actionProvider.checkOutPromos();
-      }
-      else {
-        this.actionProvider.standardAnswer();
-      }
-    }
   }
+  }
+
   
   export default MessageParser;
