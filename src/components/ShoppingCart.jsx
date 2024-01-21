@@ -131,5 +131,6 @@ const ShoppingCart = () => {
   </Transition.Root>
 )
 }
+}
 
-export default ShoppingCart
+export default ShoppingCart;
