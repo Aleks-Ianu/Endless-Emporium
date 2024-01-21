@@ -7,6 +7,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 
+
 const navigation = {
   categories: [
     {
@@ -140,6 +141,15 @@ function classNames(...classes) {
 
 const NavBar = () => {
   const [open, setOpen] = useState(false);
+  
+    const [nav, setNav] = useState(false);
+  
+    const handleClick = () => {
+      setNav(!nav);
+    };
+    const handleClickLink = () => {
+      window.location.href = "/";
+    };
 
   return (
     <div className="w-full bg-white">
@@ -328,7 +338,7 @@ const NavBar = () => {
 
               {/* Logo */}
               <div className="flex ml-4 lg:ml-0">
-                <a href="#">
+                <a href="#HomePage">
                   <span className="sr-only">Your Company</span>
                   <img className="w-auto h-24" src="../EE.jpg" alt="" />
                 </a>
