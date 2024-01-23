@@ -1,4 +1,4 @@
-import React , { Fragment, useState } from "react";
+import React, { Fragment, useState } from "react";
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -6,7 +6,7 @@ import {
   ShoppingBagIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-
+import ShoppingCart from "./ShoppingCart";
 
 const navigation = {
   categories: [
@@ -141,15 +141,12 @@ function classNames(...classes) {
 
 const NavBar = () => {
   const [open, setOpen] = useState(false);
-  
-    const [nav, setNav] = useState(false);
-  
-    const handleClick = () => {
-      setNav(!nav);
-    };
-    const handleClickLink = () => {
-      window.location.href = "/";
-    };
+  const [nav, setNav] = useState(false);
+  const [cartModalOpen, setCartModalOpen] = useState(false);
+
+  const toggleCartModal = () => {
+    setCartModalOpen(!cartModalOpen);
+  };
 
   return (
     <div className="w-full bg-white">
@@ -498,7 +495,11 @@ const NavBar = () => {
 
                 {/* Cart */}
                 <div className="flow-root ml-4 lg:ml-6">
-                  <a href="#" className="flex items-center p-2 -m-2 group">
+                  <a
+                    href="#"
+                    className="flex items-center p-2 -m-2 group"
+                    onClick={toggleCartModal}
+                  >
                     <ShoppingBagIcon
                       className="flex-shrink-0 w-6 h-6 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
@@ -509,6 +510,8 @@ const NavBar = () => {
                     <span className="sr-only">items in cart, view bag</span>
                   </a>
                 </div>
+                {/* Shopping Cart Modal */}
+                {cartModalOpen && <ShoppingCart />}
               </div>
             </div>
           </div>
@@ -516,6 +519,6 @@ const NavBar = () => {
       </header>
     </div>
   );
-}
+};
 
 export default NavBar;
