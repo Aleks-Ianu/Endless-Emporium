@@ -2,7 +2,7 @@ import React from "react";
 
 const Jumbotron = () => {
   return (
-    <div className="relative overflow-hidden bg-white">
+    <div className="relative overflow-hidden bg-white z-[-1]">
       <div className="pt-16 pb-80 sm:pb-40 sm:pt-24 lg:pb-48 lg:pt-40">
         <div className="relative px-4 mx-auto max-w-7xl sm:static sm:px-6 lg:px-8">
           <div className="sm:max-w-lg">

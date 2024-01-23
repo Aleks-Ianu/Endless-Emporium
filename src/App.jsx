@@ -24,8 +24,10 @@ function App() {
       </div>
       <Routes>
       {/* <Route path="/" element={<Login />} /> */}
+
       <Route path="/" element= {<HomePage toggleCartModal={toggleCartModal}/>} />
       <Route path="/product/:productId" element={<div><NavBar toggleCartModal={toggleCartModal}/><Product /></div>} />
+
 
       </Routes>
     </Router>

@@ -332,7 +332,7 @@ const NavBar = ({ toggleCartModal }) => {
 
               {/* Logo */}
               <div className="flex ml-4 lg:ml-0">
-                <a href="#HomePage">
+                <a href="/HomePage">
                   <span className="sr-only">Your Company</span>
                   <img className="w-auto h-24" src="../EE.jpg" alt="" />
                 </a>
