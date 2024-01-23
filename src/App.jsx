@@ -6,20 +6,30 @@ import Product from './components/Product';
 <co></co>
 import HomePage from './pages/HomePage'
 import NavBar from './components/Navbar';
-
+import Example from './components/ShoppingCart';
 
 function App() {
   const [count, setCount] = useState(0)
-   
+  const [isCartOpen, setCartOpen] = useState(false);
+
+  const toggleCartModal = () => {
+    setCartOpen(!isCartOpen);
+  };
+
   return (
     <Router>
+      <div>
+      
+      {isCartOpen && <Example />}
+      </div>
       <Routes>
       {/* <Route path="/" element={<Login />} /> */}
-      <Route path="/" element= {<HomePage />} />
-      <Route path="/product/:productId" element={<div><NavBar /><Product /></div>} />
+      <Route path="/" element= {<HomePage toggleCartModal={toggleCartModal}/>} />
+      <Route path="/product/:productId" element={<div><NavBar toggleCartModal={toggleCartModal}/><Product /></div>} />
 
       </Routes>
     </Router>
+    
   )
 }
 

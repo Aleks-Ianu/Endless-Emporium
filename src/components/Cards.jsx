@@ -11,6 +11,7 @@
           try {
             const response = await axios.get('https://fakestoreapi.com/products/');
             setProducts(response.data);
+            console.log(products);
           } catch (error) {
             console.error('Error fetching products:', error);
           }
@@ -18,7 +19,7 @@
     
         fetchProducts();
       }, []);
-      console.log(products);
+      
 
       const navigate = useNavigate();
       return (
