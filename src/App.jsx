@@ -6,8 +6,12 @@ import Product from './components/Product';
 <co></co>
 import HomePage from './pages/HomePage'
 import NavBar from './components/Navbar';
-import Example from './components/ShoppingCart';
+
+
 import { CartProvider } from './context/CartContext';
+
+import ShoppingCart from './components/ShoppingCart';
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,7 +25,12 @@ function App() {
     <CartProvider> {/* Wrap everything inside CartProvider */
     <Router>
       <div>
-        {isCartOpen && <Example />}
+
+    
+
+      
+      {isCartOpen && <ShoppingCart />}
+
       </div>
       <Routes>
         {/* <Route path="/" element={<Login />} /> */}
