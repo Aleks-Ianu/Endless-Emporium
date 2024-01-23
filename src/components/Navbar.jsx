@@ -139,15 +139,12 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const NavBar = () => {
+const NavBar = ({ toggleCartModal }) => {
   const [open, setOpen] = useState(false);
   const [nav, setNav] = useState(false);
   const [cartModalOpen, setCartModalOpen] = useState(false);
 
-  const toggleCartModal = () => {
-    setCartModalOpen(!cartModalOpen);
-  };
-
+  
   return (
     <div className="w-full bg-white">
       {/* Mobile menu */}
@@ -498,11 +495,17 @@ const NavBar = () => {
                   <a
                     href="#"
                     className="flex items-center p-2 -m-2 group"
-                    onClick={toggleCartModal}
+                    onClick={(e) => {
+                      console.log("test cart clicked");
+                      e.preventDefault(); // Prevent default anchor behavior
+                      e.stopPropagation();
+                      toggleCartModal(); // Use the prop function
+                    }}
                   >
                     <ShoppingBagIcon
                       className="flex-shrink-0 w-6 h-6 text-gray-400 group-hover:text-gray-500"
                       aria-hidden="true"
+                      
                     />
                     <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
                       0
@@ -510,8 +513,6 @@ const NavBar = () => {
                     <span className="sr-only">items in cart, view bag</span>
                   </a>
                 </div>
-                {/* Shopping Cart Modal */}
-                {cartModalOpen && <ShoppingCart />}
               </div>
             </div>
           </div>
