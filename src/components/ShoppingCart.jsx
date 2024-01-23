@@ -1,10 +1,16 @@
 import React from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
+import { Fragment, useState } from 'react';
 
 const ShoppingCart = () => {
     const [open, setOpen] = useState(false); 
-const ShoppingCart = () => {
+    const products = [
+      { id: 1, name: 'Product 1', price: '$20.00', /* other properties */ },
+      { id: 2, name: 'Product 2', price: '$30.00', /* other properties */ },
+      // ... add more products
+    ];
+
     return (
     <Transition.Root show={open} as={Fragment}>
     <Dialog as="div" className="relative z-10" onClose={setOpen}>
@@ -131,6 +137,6 @@ const ShoppingCart = () => {
   </Transition.Root>
 )
 }
-}
+
 
 export default ShoppingCart;
