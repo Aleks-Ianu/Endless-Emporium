@@ -6,7 +6,7 @@ import {
   ShoppingBagIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import ShoppingCart from "./ShoppingCart";
+
 
 const navigation = {
   categories: [
@@ -332,7 +332,7 @@ const NavBar = ({ toggleCartModal }) => {
 
               {/* Logo */}
               <div className="flex ml-4 lg:ml-0">
-                <a href="/HomePage">
+                <a href="/">
                   <span className="sr-only">Your Company</span>
                   <img className="w-auto h-24" src="../EE.jpg" alt="" />
                 </a>
