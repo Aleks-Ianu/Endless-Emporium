@@ -18,7 +18,7 @@ const Checkout = () => {
   const [stripeError, setStripeError] = useState(null);
   const [isLoading, setLoading] = useState(false);
   const item = {
-    priceId: "price_1ObrtpBBELVsrCQlwDGWXHBQ",
+    price: "price_1OcCcCBBELVsrCQlKjILwRae",
     quantity: 1
   };
 
