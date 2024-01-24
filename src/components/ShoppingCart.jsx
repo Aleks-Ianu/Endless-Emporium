@@ -6,7 +6,7 @@ import { useCart } from '../context/CartContext';
 
 export default function ShoppingCart() {
   const [open, setOpen] = useState(true)
-  const { cartItems } = useCart();
+  const { cartItems, subtotal, removeFromCart } = useCart();
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -73,7 +73,7 @@ export default function ShoppingCart() {
                                       <h3>
                                         <a href={product.href}>{product.title}</a>
                                       </h3>
-                                      <p className="ml-4">{product.price}</p>
+                                      <p className="ml-4">£{product.price.toFixed(2)}</p>
                                     </div>
                                     {/* Additional product details can go here */}
                                   </div>
@@ -84,6 +84,7 @@ export default function ShoppingCart() {
                                       <button
                                         type="button"
                                         className="font-medium text-indigo-600 hover:text-indigo-500"
+                                        onClick={() => removeFromCart(product.id)}
                                       >
                                         Remove
                                       </button>
@@ -96,11 +97,13 @@ export default function ShoppingCart() {
                         </div>
                       </div>
                     </div>
-
+                    
                     <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                       <div className="flex justify-between text-base font-medium text-gray-900">
                         <p>Subtotal</p>
-                        <p>$262.00</p>
+                        <p>£{subtotal.toFixed(2)}</p>
+                        {console.log('Subtotal:', subtotal, 'Type:', typeof subtotal)}
+
                       </div>
                       <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                       <div className="mt-6">

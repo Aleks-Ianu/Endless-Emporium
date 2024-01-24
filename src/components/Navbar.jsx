@@ -6,7 +6,7 @@ import {
   ShoppingBagIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-
+import { useCart } from '../context/CartContext';
 
 const navigation = {
   categories: [
@@ -135,6 +135,13 @@ const navigation = {
   pages: [],
 };
 
+
+const handleCartClick = (e) => {
+  console.log("Cart icon clicked");
+  
+  toggleCartModal(); // assuming this is the prop function
+};
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -143,7 +150,7 @@ const NavBar = ({ toggleCartModal }) => {
   const [open, setOpen] = useState(false);
   const [nav, setNav] = useState(false);
   const [cartModalOpen, setCartModalOpen] = useState(false);
-
+  const { cartItemCount } = useCart();
   
   return (
     <div className="w-full bg-white">
@@ -489,29 +496,26 @@ const NavBar = ({ toggleCartModal }) => {
                     />
                   </a>
                 </div>
-
+                    
                 {/* Cart */}
                 <div className="flow-root ml-4 lg:ml-6">
-                  <a
-                    href="#"
-                    className="flex items-center p-2 -m-2 group"
-                    onClick={(e) => {
-                      console.log("test cart clicked");
-                      e.preventDefault(); // Prevent default anchor behavior
-                      e.stopPropagation();
-                      toggleCartModal(); // Use the prop function
-                    }}
-                  >
-                    <ShoppingBagIcon
-                      className="flex-shrink-0 w-6 h-6 text-gray-400 group-hover:text-gray-500"
-                      aria-hidden="true"
-                      
-                    />
-                    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                      0
-                    </span>
-                    <span className="sr-only">items in cart, view bag</span>
-                  </a>
+                    <button
+                        onClick={(e) => {
+                            console.log("Cart icon clicked");
+                            e.preventDefault(); // Prevent default anchor behavior
+                            toggleCartModal(); // Use the prop function
+                        }}
+                        className="flex items-center p-2 -m-2 group"
+                    >
+                        <ShoppingBagIcon
+                            className="flex-shrink-0 w-6 h-6 text-gray-400 group-hover:text-gray-500"
+                            aria-hidden="true"
+                        />
+                        <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
+                        {cartItemCount}
+                        </span>
+                        <span className="sr-only">items in cart, view bag</span>
+                    </button>
                 </div>
               </div>
             </div>
