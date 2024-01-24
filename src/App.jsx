@@ -6,8 +6,6 @@ import Product from './components/Product';
 <co></co>
 import HomePage from './pages/HomePage'
 import NavBar from './components/Navbar';
-
-
 import { CartProvider } from './context/CartContext';
 
 import ShoppingCart from './components/ShoppingCart';
