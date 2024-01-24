@@ -7,6 +7,10 @@ import Product from './components/Product';
 import HomePage from './pages/HomePage'
 import NavBar from './components/Navbar';
 
+// test 
+import Checkout from './components/Checkout/Checkout';
+import "@stripe/stripe-js";
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,6 +21,7 @@ function App() {
       {/* <Route path="/" element={<Login />} /> */}
       <Route path="/HomePage" element= {<HomePage />} />
       <Route path="/product/:productId" element={<div><NavBar /><Product /></div>} />
+      <Route path="/checkout" element = {<div><Checkout /></div>} />
 
       </Routes>
     </Router>
