@@ -6,6 +6,7 @@ import ChatBotContainer from '../components/Chatbot/ChatBotContainer/ChatBotCont
 import Footer from '../components/Footer';
 
 
+
 export default function HomePage ({ toggleCartModal }) {
     return (
         <div>

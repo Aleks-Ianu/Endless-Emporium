@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { StarIcon } from '@heroicons/react/20/solid'
-import { RadioGroup } from '@headlessui/react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useCart } from '../context/CartContext';
+import { RadioGroup } from '@headlessui/react';
+import { StarIcon } from '@heroicons/react/20/solid';
+import '../styling.css'
 
 
 const reviews = { href: '#', average: 4, totalCount: 117 }
@@ -12,10 +13,22 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
+
 const Product = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const { addToCart } = useCart();
+
+  const sizeOptions = [
+    { name: 'Small', inStock: true },
+    { name: 'Medium', inStock: true },
+    { name: 'Large', inStock: true },
+    { name: 'XLarge', inStock: true },
+  
+    // Add more sizes as needed
+  ];
+
+  const [selectedSize, setSelectedSize] = useState(sizeOptions[0]);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -33,7 +46,7 @@ const Product = () => {
   if (!product) return <div>Loading...</div>;
   
   // const [selectedColor, setSelectedColor] = useState(product.colors[0])
-  // const [selectedSize, setSelectedSize] = useState(product.sizes[2])
+  
 
   const handleAddToCart = () => {
     console.log("Adding to cart", product)
@@ -69,7 +82,7 @@ const Product = () => {
             ))} */}
             <li className="text-sm">
               <a href={product.href} aria-current="page" className="font-medium text-gray-500 hover:text-gray-600">
-                {product.name}
+                {product.title}
               </a>
             </li>
           </ol>
@@ -89,7 +102,7 @@ const Product = () => {
         {/* Product info */}
         <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
           <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-            <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{product.name}</h1>
+            <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{product.title}</h1>
           </div>
 
           {/* Options */}
@@ -100,6 +113,8 @@ const Product = () => {
             {/* Reviews */}
             <div className="mt-6">
               <h3 className="sr-only">Reviews</h3>
+              <p></p>
+              <p>{product.rating.rate} / 5</p>
               <div className="flex items-center">
                 <div className="flex items-center">
                   {[0, 1, 2, 3, 4].map((rating) => (
@@ -115,15 +130,15 @@ const Product = () => {
                 </div>
                 <p className="sr-only">{reviews.average} out of 5 stars</p>
                 <a href={reviews.href} className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                  {reviews.totalCount} reviews
+                {product.rating.count} reviews
                 </a>
               </div>
             </div>
 
             <form className="mt-10">
               {/* Colors */}
-              <div>
-                <h3 className="text-sm font-medium text-gray-900">Color</h3>
+              {/* <div>
+                <h3 className="text-sm font-medium text-gray-900">Color</h3> */}
 
                 {/* <RadioGroup value={selectedColor} onChange={setSelectedColor} className="mt-4">
                   <RadioGroup.Label className="sr-only">Choose a color</RadioGroup.Label>
@@ -155,21 +170,21 @@ const Product = () => {
                     ))}
                   </div>
                 </RadioGroup> */}
-              </div>
+              {/* </div> */}
 
               {/* Sizes */}
               <div className="mt-10">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-medium text-gray-900">Size</h3>
-                  <a href="#" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                    Size guide
-                  </a>
+                  
+                  <p>Chat to our tech buddy below for our size guide</p>
+                   
+                  
                 </div>
 
-                {/* <RadioGroup value={selectedSize} onChange={setSelectedSize} className="mt-4">
+                <RadioGroup value={selectedSize} onChange={setSelectedSize} className="mt-4">
                   <RadioGroup.Label className="sr-only">Choose a size</RadioGroup.Label>
                   <div className="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4">
-                    {product.sizes.map((size) => (
+                    {sizeOptions.map((size) => (
                       <RadioGroup.Option
                         key={size.name}
                         value={size}
@@ -216,12 +231,12 @@ const Product = () => {
                       </RadioGroup.Option>
                     ))}
                   </div>
-                </RadioGroup> */}
+                </RadioGroup>
               </div>
 
               <button
                 type="button"
-                className="flex items-center justify-center w-full px-8 py-3 mt-10 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className=" animated-button flex items-center justify-center w-full px-8 py-3 mt-10 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 onClick={handleAddToCart}
                 
               >
@@ -243,7 +258,7 @@ const Product = () => {
             </div>
 
             <div className="mt-10">
-              <h3 className="text-sm font-medium text-gray-900">Highlights</h3>
+              
 
               <div className="mt-4">
                 <ul role="list" className="pl-4 space-y-2 text-sm list-disc">
@@ -257,7 +272,7 @@ const Product = () => {
             </div>
 
             <div className="mt-10">
-              <h2 className="text-sm font-medium text-gray-900">Details</h2>
+              
 
               <div className="mt-4 space-y-6">
                 <p className="text-sm text-gray-600">{product.details}</p>

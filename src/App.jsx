@@ -7,12 +7,13 @@ import Product from './components/Product';
 import HomePage from './pages/HomePage'
 import NavBar from './components/Navbar';
 import { CartProvider } from './context/CartContext';
-
+import Footer from './components/Footer';
 import ShoppingCart from './components/ShoppingCart';
 
 // test 
 import Checkout from './components/Checkout/Checkout';
 import "@stripe/stripe-js";
+import './styling.css'
 
 
 function App() {
@@ -37,7 +38,7 @@ function App() {
       <Routes>
         {/* <Route path="/" element={<Login />} /> */}
         <Route path="/" element={<HomePage toggleCartModal={toggleCartModal}/>} />
-        <Route path="/product/:productId" element={<div><NavBar toggleCartModal={toggleCartModal}/><Product /></div>} />
+        <Route path="/product/:productId" element={<div><NavBar toggleCartModal={toggleCartModal}/><Product /><Footer /></div>} />
       <Route path="/checkout" element = {<div><Checkout /></div>} />
       </Routes>
     </Router> }

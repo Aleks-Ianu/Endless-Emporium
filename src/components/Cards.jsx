@@ -12,6 +12,7 @@
             const response = await axios.get('https://fakestoreapi.com/products/');
             setProducts(response.data);
             console.log(products);
+            console.log(response.data)
           } catch (error) {
             console.error('Error fetching products:', error);
           }
