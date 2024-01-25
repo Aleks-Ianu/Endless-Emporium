@@ -1,6 +1,7 @@
+import React, { useContext } from 'react'; // Add useContext to your import
 import { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
-
+import { CartContext } from "../../context/CartContext";
 
 
 let stripePromise;
@@ -21,6 +22,12 @@ const Checkout = () => {
     price: "price_1OcCcCBBELVsrCQlKjILwRae",
     quantity: 1
   };
+
+  const { cartItems } = useContext(CartContext);
+
+  const subtotal = cartItems.reduce((total, item) => {
+    return total + (item.price * item.quantity);
+  }, 0);
 
   const checkoutOptions = {
     lineItems: [item],
@@ -46,11 +53,7 @@ const Checkout = () => {
   return (
     <div className="checkout">
       <h1>Stripe Checkout</h1>
-      <p className="checkout-title">Design+Code React Hooks Course</p>
-      <p className="checkout-description">
-        Learn how to build a website with React Hooks
-      </p>
-      <h1 className="checkout-price">$19</h1>
+      <h1 className="checkout-price">£{subtotal.toFixed(2)}</h1>
       <img
         className="checkout-product-image"
         // src={ProductImage}
