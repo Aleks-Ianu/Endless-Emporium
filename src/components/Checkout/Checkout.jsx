@@ -2,6 +2,7 @@ import React, { useContext } from 'react'; // Add useContext to your import
 import { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { CartContext } from '../../context/CartContext';
+import '../../index.css'
 
 
 let stripePromise;
@@ -54,11 +55,11 @@ const Checkout = () => {
     <div className="checkout">
       <h1>Stripe Checkout</h1>
       <h1 className="checkout-price">£{subtotal.toFixed(2)}</h1>
-      <img
+      {/* <img
         className="checkout-product-image"
         // src={ProductImage}
         alt="Product"
-      />
+      /> */}
       <button
         className="checkout-button"
         onClick={redirectToCheckout}

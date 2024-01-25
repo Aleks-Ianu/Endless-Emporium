@@ -9,8 +9,8 @@ import NavBar from './components/Navbar';
 import { CartProvider } from './context/CartContext';
 import Footer from './components/Footer';
 import ShoppingCart from './components/ShoppingCart';
-
-// test 
+import 'react-chatbot-kit/build/main.css';
+import ChatBotContainer from './components/Chatbot/ChatBotContainer/ChatBotContainer';
 import Checkout from './components/Checkout/Checkout';
 import "@stripe/stripe-js";
 import './styling.css'
@@ -28,17 +28,12 @@ function App() {
     <CartProvider> {/* Wrap everything inside CartProvider */
     <Router>
       <div>
-
-    
-
-      
       {isCartOpen && <ShoppingCart />}
-
       </div>
       <Routes>
         {/* <Route path="/" element={<Login />} /> */}
         <Route path="/" element={<HomePage toggleCartModal={toggleCartModal}/>} />
-        <Route path="/product/:productId" element={<div><NavBar toggleCartModal={toggleCartModal}/><Product /><Footer /></div>} />
+        <Route path="/product/:productId" element={<div><NavBar toggleCartModal={toggleCartModal}/><Product /><Footer /><ChatBotContainer /></div>} />
       <Route path="/checkout" element = {<div><Checkout /></div>} />
       </Routes>
     </Router> }
