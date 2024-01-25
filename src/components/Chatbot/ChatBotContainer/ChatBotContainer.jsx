@@ -6,19 +6,19 @@ import ActionProvider from '../ActionProvider';
 import './ChatBotContainer.css';
 
 const ChatBotContainer = () => {
-  const [isChatbotOpen, setChatbotOpen] = useState(true);
+  const [isChatbotOpen, setChatbotOpen] = useState(false);
 
   const toggleChatbot = () => {
     setChatbotOpen(!isChatbotOpen);
   };
 
-  const minimizeChatbot = () => {
-    setChatbotOpen(false);
-  };
+  // const minimizeChatbot = () => {
+  //   setChatbotOpen(false);
+  // };
 
-  const maximizeChatbot = () => {
-    setChatbotOpen(true);
-  };
+  // const maximizeChatbot = () => {
+  //   setChatbotOpen(true);
+  // };
 
   return (
     <div className={`chatbot-container ${isChatbotOpen ? 'open' : 'closed'}`}>
