@@ -62,3 +62,5 @@ const cartItemCount = cartItems.reduce((total, item) => total + (item.quantity |
     </CartContext.Provider>
   );
 };
+
+export { CartContext };
