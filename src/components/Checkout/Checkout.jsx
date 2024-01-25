@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
+import { useCart } from "../../context/CartContext"; // Go up two levels
+
 
 
 
@@ -15,6 +17,7 @@ const getStripe = () => {
 };
 
 const Checkout = () => {
+  const { cartItems, subtotal } = useCart()
   const [stripeError, setStripeError] = useState(null);
   const [isLoading, setLoading] = useState(false);
   const item = {
@@ -22,8 +25,19 @@ const Checkout = () => {
     quantity: 1
   };
 
+  const lineItems = cartItems.map(item => ({
+    price_data: {
+      currency: 'GBP',
+      product_data: {
+        name: item.title,
+      },
+      unit_amount: item.price * 100, // Stripe expects the amount in cents
+    },
+    quantity: item.quantity || 1,
+  }));
+
   const checkoutOptions = {
-    lineItems: [item],
+    lineItems,
     mode: "payment",
     successUrl: `${window.location.origin}/success`,
     cancelUrl: `${window.location.origin}/cancel`
@@ -46,11 +60,8 @@ const Checkout = () => {
   return (
     <div className="checkout">
       <h1>Stripe Checkout</h1>
-      <p className="checkout-title">Design+Code React Hooks Course</p>
-      <p className="checkout-description">
-        Learn how to build a website with React Hooks
-      </p>
-      <h1 className="checkout-price">$19</h1>
+      <p className="checkout-description">Your Order</p>
+      <h1 className="checkout-price">Total: £{subtotal.toFixed(2)}</h1>
       <img
         className="checkout-product-image"
         // src={ProductImage}
@@ -67,7 +78,7 @@ const Checkout = () => {
           </div>
         </div>
         <div className="text-container">
-          <p className="text">{isLoading ? "Loading..." : "Buy"}</p>
+          <p className="text">{isLoading ? "Loading..." : "Checkout"}</p>
         </div>
       </button>
     </div>
