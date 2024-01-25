@@ -12,7 +12,7 @@ export default function HomePage ({ toggleCartModal }) {
             <NavBar toggleCartModal={toggleCartModal} />
             <Jumbotron />
             <FakeStoreProductComponent />
-            {/* <ChatBotContainer /> */}
+            <ChatBotContainer />
             <Footer />
             </div>
     )
