@@ -2,7 +2,7 @@
 
 ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
 # Description
-This project is a fantastic opportunity to show employers our collaborative skills and coding abilities, especially in the context of a scalable, user-focused React app. We will be using what we have learned in React to develop the initial scaffolding of our Endless Emporium site from scratch using React.
+Endless Emporium is a web application that allows users to shop and buy items and products. This application integrates fake store API and Stripe for the application.
 
 ## User Story
 ```
