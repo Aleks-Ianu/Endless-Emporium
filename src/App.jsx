@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter  as Router, Route, Routes } from 'react-router-dom';
 import Login from './components/Login';
 import Product from './components/Product';
 <co></co>
@@ -9,6 +9,10 @@ import NavBar from './components/Navbar';
 import { CartProvider } from './context/CartContext';
 
 import ShoppingCart from './components/ShoppingCart';
+
+// test 
+import Checkout from './components/Checkout/Checkout';
+import "@stripe/stripe-js";
 
 
 function App() {
@@ -34,6 +38,7 @@ function App() {
         {/* <Route path="/" element={<Login />} /> */}
         <Route path="/" element={<HomePage toggleCartModal={toggleCartModal}/>} />
         <Route path="/product/:productId" element={<div><NavBar toggleCartModal={toggleCartModal}/><Product /></div>} />
+      <Route path="/checkout" element = {<div><Checkout /></div>} />
       </Routes>
     </Router> }
   </CartProvider>
